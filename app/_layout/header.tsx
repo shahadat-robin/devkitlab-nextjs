@@ -4,6 +4,7 @@ import Container from '@/components/container';
 import IconStore from '@/components/icon-store';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AppHeader() {
   const { theme, setTheme } = useTheme();
@@ -11,14 +12,31 @@ export default function AppHeader() {
   return (
     <header className="py-5 sticky top-0 bg-primary dark:bg-dark-light z-50">
       <Container className="flex items-center justify-between">
-        <Image
-          src="/next.svg"
-          alt="Brand logo"
-          width={100}
-          height={50}
-          className="h-auto w-[6.25rem] cursor-pointer"
-          priority
-        />
+        <Link href="/">
+          <Image
+            src="/next.svg"
+            alt="Brand logo"
+            width={100}
+            height={50}
+            className="h-auto w-[6.25rem] cursor-pointer"
+            priority
+          />
+        </Link>
+
+        <ul className="flex items-center gap-5">
+          <li>
+            <Link href="/dynamic-page">Dynamic SSR</Link>
+          </li>
+          <li>
+            <Link href="/static-page">Static SSG</Link>
+          </li>
+          <li>
+            <Link href="/incremental-page">Incremental Static ISR</Link>
+          </li>
+          <li>
+            <Link href="/streaming-page">Streaming</Link>
+          </li>
+        </ul>
 
         <label htmlFor="theme-toggle" className="flex items-center cursor-pointer">
           <div className="relative min-h-[30px] w-[55px] rounded-full bg-white">

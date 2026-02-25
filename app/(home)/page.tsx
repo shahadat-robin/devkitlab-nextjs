@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
-import AnotherSection from './sub-components/another-section';
-import HeroSection from './sub-components/hero-section';
+import AnotherSection from './_common/another-section';
+import HeroSection from './_common/landing-hero-section';
 
 const HomePage: NextPage = () => (
   <>

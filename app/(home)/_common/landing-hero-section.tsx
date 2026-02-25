@@ -4,7 +4,7 @@ import IconStore from '@/components/icon-store';
 import Typography from '@/components/typography';
 import { cn } from '@/utils/class-merge';
 
-export default function HeroSection() {
+export default function LandingHeroSection() {
   return (
     <section className={cn(`flex section-padding min-h-screen`)}>
       <Container className="flex items-center justify-center">
