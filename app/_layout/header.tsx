@@ -36,6 +36,12 @@ export default function AppHeader() {
           <li>
             <Link href="/streaming-page">Streaming</Link>
           </li>
+          <li>
+            <Link href="/streaming-page-2">Streaming 2</Link>
+          </li>
+          <li>
+            <Link href="/streaming-page-3">Streaming 3</Link>
+          </li>
         </ul>
 
         <label htmlFor="theme-toggle" className="flex items-center cursor-pointer">
