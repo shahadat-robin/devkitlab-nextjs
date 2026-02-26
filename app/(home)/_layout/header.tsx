@@ -34,13 +34,10 @@ export default function AppHeader() {
             <Link href="/incremental-page">Incremental Static ISR</Link>
           </li>
           <li>
-            <Link href="/streaming-page">Streaming</Link>
+            <Link href="/component-streaming">Component Streaming</Link>
           </li>
           <li>
-            <Link href="/streaming-page-2">Streaming 2</Link>
-          </li>
-          <li>
-            <Link href="/streaming-page-3">Streaming 3</Link>
+            <Link href="/page-streaming">Page Streaming</Link>
           </li>
         </ul>
 

@@ -3,6 +3,7 @@ import Container from '@/components/container';
 import IconStore from '@/components/icon-store';
 import Typography from '@/components/typography';
 import { cn } from '@/utils/class-merge';
+import Link from 'next/link';
 
 export default function LandingHeroSection() {
   return (
@@ -16,12 +17,14 @@ export default function LandingHeroSection() {
             accusantium, ad error, beatae adipisci?
           </Typography>
 
-          <Button
-            variant="secondary"
-            className="border border-primary text-primary dark:text-white"
-          >
-            Explore <IconStore name="arrow-right-long" className="text-xl" />
-          </Button>
+          <Link href="/studio">
+            <Button
+              variant="secondary"
+              className="border border-primary text-primary dark:text-white"
+            >
+              Studio <IconStore name="arrow-right-long" className="text-xl" />
+            </Button>
+          </Link>
         </div>
       </Container>
     </section>

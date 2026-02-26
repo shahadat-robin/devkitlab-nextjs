@@ -1,8 +1,5 @@
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
-import Footer from './_layout/footer';
-import AppHeader from './_layout/header';
-import RootProvider from './provider';
 import './styles.css';
 
 export const metadata: Metadata = {
@@ -13,13 +10,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body cz-shortcut-listen="true">
-        <RootProvider>
-          <AppHeader />
-          <main>{children}</main>
-          <Footer />
-        </RootProvider>
-      </body>
+      <body cz-shortcut-listen="true">{children}</body>
     </html>
   );
 }
