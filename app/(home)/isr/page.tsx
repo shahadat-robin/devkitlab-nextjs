@@ -1,15 +1,17 @@
 import PostCard from '@/components/card/post-card';
 import Container from '@/components/container';
-import { fetchPosts } from '@/services/fetch-posts';
+import { fetchPostsHeavy } from '@/services/fetch-posts';
 import type { NextPage } from 'next';
 import HeroSection from '../_common/hero-section';
 
-const StaticPage: NextPage = async () => {
-  const posts = await fetchPosts();
+export const revalidate = 60;
+
+const ISRPage: NextPage = async () => {
+  const posts = await fetchPostsHeavy();
 
   return (
     <>
-      <HeroSection title="This is Static Page" />
+      <HeroSection title="This is ISR Page" />
       <section className="py-10">
         <Container className="grid grid-cols-2 gap-5">
           {posts.map((post) => (
@@ -21,4 +23,4 @@ const StaticPage: NextPage = async () => {
   );
 };
 
-export default StaticPage;
+export default ISRPage;

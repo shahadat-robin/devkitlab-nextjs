@@ -1,17 +1,15 @@
 import PostCard from '@/components/card/post-card';
 import Container from '@/components/container';
-import { fetchPosts } from '@/services/fetch-posts';
+import { fetchPostsWithoutCacheHeavy } from '@/services/fetch-posts';
 import type { NextPage } from 'next';
 import HeroSection from '../_common/hero-section';
 
-export const dynamic = 'force-dynamic';
-
-const DynamicPage: NextPage = async () => {
-  const posts = await fetchPosts();
+const SSRStreamPage: NextPage = async () => {
+  const posts = await fetchPostsWithoutCacheHeavy();
 
   return (
     <>
-      <HeroSection title="This is Dynamic Page" />
+      <HeroSection title="This is Streamed Dynamic Page" />
       <section className="py-10">
         <Container className="grid grid-cols-2 gap-5">
           {posts.map((post) => (
@@ -23,4 +21,4 @@ const DynamicPage: NextPage = async () => {
   );
 };
 
-export default DynamicPage;
+export default SSRStreamPage;

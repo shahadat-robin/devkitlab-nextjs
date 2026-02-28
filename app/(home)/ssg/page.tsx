@@ -1,15 +1,15 @@
 import PostCard from '@/components/card/post-card';
 import Container from '@/components/container';
-import { fetchPosts } from '@/services/fetch-posts';
+import { fetchPostsHeavy } from '@/services/fetch-posts';
 import type { NextPage } from 'next';
 import HeroSection from '../_common/hero-section';
 
-const StreamingPage2: NextPage = async () => {
-  const posts = await fetchPosts();
+const SSGPage: NextPage = async () => {
+  const posts = await fetchPostsHeavy();
 
   return (
     <>
-      <HeroSection title="This is Streaming Page 2" />
+      <HeroSection title="This is Static Page" />
       <section className="py-10">
         <Container className="grid grid-cols-2 gap-5">
           {posts.map((post) => (
@@ -21,4 +21,4 @@ const StreamingPage2: NextPage = async () => {
   );
 };
 
-export default StreamingPage2;
+export default SSGPage;

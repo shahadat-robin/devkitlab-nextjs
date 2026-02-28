@@ -25,19 +25,22 @@ export default function AppHeader() {
 
         <ul className="flex items-center gap-5">
           <li>
-            <Link href="/dynamic-page">Dynamic SSR</Link>
+            <Link href="/ssg">SSG</Link>
           </li>
           <li>
-            <Link href="/static-page">Static SSG</Link>
+            <Link href="/isr">ISR</Link>
           </li>
           <li>
-            <Link href="/incremental-page">Incremental Static ISR</Link>
+            <Link href="/ssr">SSR</Link>
           </li>
           <li>
-            <Link href="/component-streaming">Component Streaming</Link>
+            <Link href="/streaming">Page Streaming</Link>
           </li>
           <li>
-            <Link href="/page-streaming">Page Streaming</Link>
+            <Link href="/ppr">PPR</Link>
+          </li>
+          <li>
+            <Link href="/ppr-copy">PPR 2</Link>
           </li>
         </ul>
 
