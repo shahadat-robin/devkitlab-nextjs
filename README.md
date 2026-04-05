@@ -14,7 +14,6 @@ Scaffold a DevkitLab Next.js starter with TypeScript, Tailwind CSS, and a ready-
 - Next.js App Router
 - TypeScript
 - Tailwind CSS
-- Sanity starter wiring
 - ESLint and Prettier
 - Husky and lint-staged
 - Reusable starter structure for components and app sections
