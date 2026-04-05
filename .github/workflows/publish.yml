@@ -69,6 +69,11 @@ jobs:
           git commit -m "core: submodule(template) updated"
           git push origin HEAD:${{ github.event.repository.default_branch }}
 
+      - name: Prepare template dotfiles for npm package
+        run: |
+          if [ -f template/.gitignore ]; then cp template/.gitignore template/gitignore; fi
+          if [ -f template/.env.example ]; then cp template/.env.example template/env.example; fi
+
       - name: Check if version is already published
         id: version_check
         run: |
