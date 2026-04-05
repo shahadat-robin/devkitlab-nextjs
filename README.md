@@ -1,4 +1,4 @@
-# @devkitlab/create-devkitlab-nextjs
+# @devkitlab/create-nextjs
 
 Scaffold a DevkitLab Next.js starter with TypeScript, Tailwind CSS, and a ready-to-extend project structure.
 
@@ -24,7 +24,7 @@ Scaffold a DevkitLab Next.js starter with TypeScript, Tailwind CSS, and a ready-
 Create a new app with:
 
 ```bash
-npx @devkitlab/create-devkitlab-nextjs@latest my-app
+npx @devkitlab/create-nextjs@latest my-app
 ```
 
 Then move into the project and install dependencies:
@@ -65,5 +65,5 @@ This starter is useful if you want:
 
 ## Package
 
-- npm: `@devkitlab/create-devkitlab-nextjs`
+- npm: `@devkitlab/create-nextjs`
 - repository: `shahadat-robin/devkitlab-nextjs`
