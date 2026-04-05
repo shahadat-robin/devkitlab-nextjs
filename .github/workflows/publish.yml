@@ -66,7 +66,7 @@ jobs:
             echo "No submodule or version changes to commit"
             exit 0
           fi
-          git commit -m "chore: update template submodule"
+          git commit -m "core: submodule(template) updated"
           git push origin HEAD:${{ github.event.repository.default_branch }}
 
       - name: Check if version is already published
