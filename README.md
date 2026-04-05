@@ -41,7 +41,7 @@ You can also use `pnpm` or `yarn` instead of `npm`.
 
 After installation:
 
-1. Create a `.env.local` file if you needs environment variables.
+1. Create a `.env.local` file if you need environment variables.
 2. Start the development server with `npm run dev`.
 3. Open `http://localhost:3000`.
 4. Begin editing the generated app.
