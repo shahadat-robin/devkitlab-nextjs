@@ -2,6 +2,8 @@
 
 `create-devkitlab-nextjs` scaffolds a DevkitLab-flavored Next.js starter with TypeScript, Tailwind CSS, and the bundled project template.
 
+The `template/` directory in this repository is a Git submodule. The source of truth for the starter lives in that separate template repository, and this package repo publishes whatever template commit is currently pinned.
+
 ## Usage
 
 ```bash
@@ -32,14 +34,14 @@ GitHub can publish this package to npm for you.
 
 - Keep this repo as the npm package repo.
 - Keep the starter app in a separate template repo.
+- Track that template repo in this package repo via the [`template/`](/Users/shahadat/projects/NextJs-Starter/template) Git submodule.
 
 ### One-time setup in the package repo
 
 1. Create an npm access token at `npmjs.com`.
 2. Add it to your GitHub repository secrets as `NPM_TOKEN`.
-3. Add a repository variable named `TEMPLATE_REPOSITORY`, for example `your-org/devkitlab-nextjs-template`.
-4. If the template repo is private, add a secret named `TEMPLATE_REPO_TOKEN` with read access to that repo.
-5. Make sure the package name in `package.json` is available on npm.
+3. If the template repo is private, add a secret named `TEMPLATE_REPO_TOKEN` with read access to that repo.
+4. Make sure the package name in `package.json` is available on npm.
 
 ### One-time setup in the template repo
 
@@ -75,6 +77,6 @@ The `PACKAGE_REPO_DISPATCH_TOKEN` secret should be a GitHub token that can dispa
 
 1. Push changes to the template repo.
 2. The template repo dispatches `template_updated` to the package repo.
-3. The package repo workflow checks out the latest template, syncs it into [`template/`](/Users/shahadat/projects/NextJs-Starter/template), bumps the npm package version, commits the sync, and publishes to npm.
+3. The package repo workflow updates the [`template/`](/Users/shahadat/projects/NextJs-Starter/template) submodule to the latest remote commit, bumps the npm package version, commits the new submodule pointer, and publishes to npm.
 
 You can also run the same package workflow manually from GitHub Actions with `workflow_dispatch`, or continue publishing from a GitHub Release if you prefer.

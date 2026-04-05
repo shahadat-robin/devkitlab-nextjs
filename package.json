@@ -6,12 +6,8 @@
   "bin": {
     "create-devkitlab-nextjs": "./bin/create-devkitlab-nextjs.mjs"
   },
-  "scripts": {
-    "sync:template": "node ./scripts/sync-template.mjs"
-  },
   "files": [
     "bin",
-    "scripts",
     "template"
   ],
   "keywords": [

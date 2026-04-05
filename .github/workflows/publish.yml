@@ -5,11 +5,6 @@ on:
     types:
       - template_updated
   workflow_dispatch:
-    inputs:
-      template_ref:
-        description: Template repository ref to sync before publishing
-        required: false
-        default: main
   release:
     types:
       - published
@@ -27,14 +22,7 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event_name == 'release' && github.event.release.target_commitish || github.event.repository.default_branch }}
-
-      - name: Checkout template repository
-        if: github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch'
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ vars.TEMPLATE_REPOSITORY }}
-          ref: ${{ github.event.client_payload.ref || inputs.template_ref || vars.TEMPLATE_DEFAULT_REF || 'main' }}
-          path: .upstream-template
+          submodules: recursive
           token: ${{ secrets.TEMPLATE_REPO_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
@@ -43,9 +31,17 @@ jobs:
           node-version: 22
           registry-url: https://registry.npmjs.org
 
-      - name: Sync template from external repository
+      - name: Configure GitHub auth for submodule updates
         if: github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch'
-        run: node ./scripts/sync-template.mjs ./.upstream-template ./template
+        env:
+          GH_TOKEN: ${{ secrets.TEMPLATE_REPO_TOKEN || secrets.GITHUB_TOKEN }}
+        run: git config --global url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
+
+      - name: Update template submodule
+        if: github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch'
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --remote template
 
       - name: Bump package version
         if: github.event_name == 'repository_dispatch'
@@ -56,12 +52,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add package.json template
+          git add .gitmodules package.json template
           if git diff --cached --quiet; then
-            echo "No changes to commit"
+            echo "No submodule or version changes to commit"
             exit 0
           fi
-          git commit -m "chore: sync template"
+          git commit -m "chore: update template submodule"
           git push origin HEAD:${{ github.event.repository.default_branch }}
 
       - name: Publish package
