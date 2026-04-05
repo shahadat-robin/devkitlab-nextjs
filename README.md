@@ -62,8 +62,3 @@ This starter is useful if you want:
 - Tailwind configured out of the box
 - a starter that can grow into a CMS-backed app
 - a reusable foundation for client projects or internal tools
-
-## Package
-
-- npm: `@devkitlab/create-nextjs`
-- repository: `shahadat-robin/devkitlab-nextjs`
