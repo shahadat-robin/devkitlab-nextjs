@@ -1,6 +1,6 @@
 {
   "name": "@devkitlab/create-devkitlab-nextjs",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Create a DevkitLab Next.js starter app with TypeScript and Tailwind CSS.",
   "type": "module",
   "bin": {
@@ -22,7 +22,6 @@
     "type": "git",
     "url": "git+https://github.com/shahadat-robin/devkitlab-nextjs.git"
   },
-  "homepage": "https://github.com/shahadat-robin/devkitlab-nextjs#readme",
   "bugs": {
     "url": "https://github.com/shahadat-robin/devkitlab-nextjs/issues"
   },
