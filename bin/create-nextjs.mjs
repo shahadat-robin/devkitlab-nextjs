@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const templateDir = path.resolve(__dirname, '..', 'template');
+const ignoredNames = new Set(['.DS_Store', '.git', '.github', '.next', 'node_modules', '.env.local']);
 
 const rawProjectName = process.argv[2] || 'my-devkitlab-app';
 const projectName = rawProjectName.trim();
@@ -32,8 +33,9 @@ try {
     recursive: true,
     filter: source => {
       const relativePath = path.relative(templateDir, source);
+      const pathParts = relativePath.split(path.sep);
 
-      return relativePath !== '.DS_Store';
+      return !pathParts.some(part => ignoredNames.has(part));
     },
   });
 
