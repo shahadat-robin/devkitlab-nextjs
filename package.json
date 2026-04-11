@@ -1,6 +1,6 @@
 {
   "name": "@devkitlab/create-nextjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Create a DevkitLab Next.js starter app with TypeScript and Tailwind CSS.",
   "type": "module",
   "bin": {
