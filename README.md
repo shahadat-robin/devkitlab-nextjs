@@ -1,63 +1,71 @@
 # @devkitlab/create-nextjs
 
-Scaffold a DevkitLab Next.js starter with TypeScript, Tailwind CSS, and a ready-to-extend project structure.
+Scaffold a production-ready Next.js starter with TypeScript, Tailwind CSS, and opinionated defaults.
 
-## Why Use It
+## Quick Start
 
-- Start faster with an opinionated Next.js setup
-- Skip repetitive project bootstrapping
-- Get a clean base for content-driven or product-focused apps
-- Use a starter that already includes common developer tooling
+```bash
+npx @devkitlab/create-nextjs@latest my-app
+cd my-app
+yarn
+yarn dev
+```
 
-## What You Get
+Open `http://localhost:3000`.
 
-- Next.js App Router
-- TypeScript
-- Tailwind CSS
-- ESLint and Prettier
-- Husky and lint-staged
-- Reusable starter structure for components and app sections
+## What This Generates
 
-## Installation
+- Next.js 16 App Router project
+- React 19 + TypeScript setup
+- Tailwind CSS configuration
+- Theme support via `next-themes`
+- ESLint + Prettier
+- Husky + lint-staged
+- Starter layout, section components, and reusable UI primitives
+- CI workflow (`.github/workflows/ci.yml`) in generated project
 
-Create a new app with:
+## Generated Structure
+
+```plaintext
+app/                    # Routes, layouts, and page-level UI
+src/components/         # Reusable UI components
+src/utils/              # Utility helpers
+public/                 # Static assets
+```
+
+## Common Usage
+
+Create project in current directory:
+
+```bash
+npx @devkitlab/create-nextjs@latest .
+```
+
+Create project in a named directory:
 
 ```bash
 npx @devkitlab/create-nextjs@latest my-app
 ```
 
-Then move into the project and install dependencies:
+## Requirements
 
-```bash
-cd my-app
-npm install
-npm run dev
-```
+- Node.js `>= 18.17.0`
 
-You can also use `pnpm` or `yarn` instead of `npm`.
+## Notes
 
-## Getting Started
+- The generated template is Yarn-first (`preinstall` enforces Yarn).
+- Repo-only workflow files are not copied into generated apps. In particular, `notify-package-repo.yml` is excluded.
 
-After installation:
+## For Maintainers
 
-1. Create a `.env.local` file if you need environment variables.
-2. Start the development server with `npm run dev`.
-3. Open `http://localhost:3000`.
-4. Begin editing the generated app.
+This package repo publishes updates from the template submodule via GitHub Actions.
 
-## Generated Project Highlights
+- Publish workflow: `.github/workflows/publish.yml`
+- Triggered by template update dispatch or package changes
+- Publishes only when the current package version is not already on npm
 
-- App code lives in `app/`
-- Shared UI and utilities live in `src/`
-- Static assets live in `public/`
-- Tailwind is preconfigured
-- Linting and formatting are already set up
+## Links
 
-## Who It’s For
-
-This starter is useful if you want:
-
-- a modern Next.js + TypeScript base
-- Tailwind configured out of the box
-- a starter that can grow into a CMS-backed app
-- a reusable foundation for client projects or internal tools
+- npm: `@devkitlab/create-nextjs`
+- repository: `https://github.com/devkit-lab/create-nextjs`
+- issues: `https://github.com/devkit-lab/create-nextjs/issues`
